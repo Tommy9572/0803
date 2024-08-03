@@ -1,0 +1,163 @@
+@charset "UTF-8";
+img {
+    display: block;
+    width: 100%;
+}
+
+/* bootstrap 換圖輪播 */
+#carouselExampleCaptions .carousel-item {
+    height: calc(100vh - 70px);
+}
+
+#carouselExampleCaptions img {
+    object-fit: cover;
+    height: 100%;
+}
+
+/* bootstrap 導覽 */
+.navbar {
+    height: 70px;
+}
+
+.nav-header {
+    /* sticky必須放在父元素 */
+    position: sticky; 
+    top: 0;
+    left: 0;
+    z-index: 999;
+}
+
+/* 主要內容區 */
+.title {
+    position: relative;
+    margin: 2rem 0 1rem;
+    padding-left: 1rem;
+    border-left: 4px solid #222;
+}
+
+.title span {
+    font-size: 1rem;
+    padding-left: .6rem;
+}
+
+.title::after {
+    content: ""; /* 必須設定,就算沒有值,也要留空值!!! */
+    position: absolute;
+    /* 因為before是個inline,無支援寬高,所以改成position: absolute;有支援,無設定寬高會自動抓內容尺寸 */
+    left: 12.5rem;
+    bottom: 5px;
+    width: calc(100% - 12.5rem);
+    height: 3px;
+    background-color: #222;
+}
+#accessories .title::after {
+    left: 17rem;
+    width: calc(100% - 17rem);
+}
+
+/* 最新商品 */
+/* 遮罩-一定要用live server看 */
+.mask {
+    mask-size: 100% 100%;
+    mask-repeat: no-repeat;
+    position: relative;
+}
+.mask-1 {
+    mask-image: url(../images/blobs-1.svg);
+}
+.mask-2 {
+    mask-image: url(../images/blobs-2.svg);
+}
+.mask-3 {
+    mask-image: url(../images/blobs-3.svg);
+}
+
+.mask h2 {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+
+    background-color: rgba(0, 0, 0, .6);
+    color: white;
+    font-size: 2rem;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    opacity: 0;
+    transition: .4s;
+}
+.mask h2:hover {
+    opacity: 1;
+}
+
+/* 推薦商品 */
+#accessories .row {
+    padding: 2vh 15%;
+}
+/* 商品內容區 */
+#accessories #tabs > div {
+    display: flex;
+}
+#accessories .col {
+    margin: 15px;
+}
+#accessories h1 {
+    display: inline-block; /* inline-block=直接抓文字寬度 */
+    background-color: black;
+    color: white;
+    padding: .2rem .5rem;
+    box-shadow: 6px 6px darkcyan; /* 可以去W3找color name */
+}
+#accessories data {
+    display: block;
+    margin: 1rem 0 .5rem;
+}
+#accessories .price {
+    font-weight: 600;
+    margin-bottom: .8rem;
+}
+#accessories mark {
+    background-color: cyan;
+    font-size: 1.5rem;
+}
+/* JQ ui tabs */
+#accessories .ui-tabs {
+    padding-bottom: 10px;
+}
+#accessories .ui-tabs .ui-tabs-nav {
+    display: flex;
+}
+#accessories .ui-widget-header {
+    border: none;
+    background-color: transparent;
+}
+#accessories .ui-tabs .ui-tabs-nav li {
+    border-bottom-width: 1px;
+    border-radius: 5px;
+    margin: 1px 10px 0 0;
+    overflow: hidden;
+}
+#accessories .ui-tabs .ui-tabs-nav li:last-child {
+    margin-right: 0;
+}
+#accessories .ui-tabs .ui-tabs-nav .ui-tabs-anchor {
+    padding: 0;
+}
+
+#accessories .ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active, a.ui-button:active, .ui-button:active, .ui-button.ui-state-active:hover {
+    border: 1px solid #222;
+    background: transparent;
+}
+#accessories .ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default, .ui-button, html .ui-button.ui-state-disabled:hover, html .ui-button.ui-state-disabled:active {
+    background-color: transparent;
+}
+/* 所有商品 */
+#all .content h3 {
+    margin: 1rem 0 .5rem;
+    font-size: 1.4rem;
+}
+#all .content p {
+    color: brown;
+}
